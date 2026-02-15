@@ -1,6 +1,6 @@
 # ROADMAP.md
 
-> **Current Phase**: Not started
+> **Current Phase**: Phase 3: Core Pages
 > **Milestone**: v1.0 MVP
 
 ## Must-Haves (from SPEC)
@@ -22,13 +22,13 @@
 -   [x] Create reusable layout components (Navbar, Footer)
 
 ### Phase 2: Content Engine
-**Status**: ⬜ Not Started
+**Status**: ✅ Complete
 **Objective**: Build the "Code-light" system for managing projects.
 **Requirements**: REQ-02, REQ-03
--   [ ] Configure Astro Content Collections for `projects`
--   [ ] Design the Project Markdown schema (frontmatter)
--   [ ] Create the "Project Card" component
--   [ ] Create the "Project Detail" page template with image/video support
+-   [x] Configure Astro Content Collections for `projects`
+-   [x] Design the Project Markdown schema (frontmatter)
+-   [x] Create the "Project Card" component
+-   [x] Create the "Project Detail" page template with image/video support
 
 ### Phase 3: Core Pages
 **Status**: ⬜ Not Started

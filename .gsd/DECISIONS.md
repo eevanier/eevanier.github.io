@@ -1,5 +1,22 @@
 # DECISIONS.md
 
+## 2026-02-15 Phase 2 Decisions: Content Engine
+
+**Date:** 2026-02-15
+
+### Scope & Schema
+-   **Schema Strategy**: "Structured" (Option A).
+-   **Fields**: `title`, `tagline`, `date`, `tags`, `thumbnail`, `gallery` (list of images), `videos` (list of URLs).
+-   **Video Hosting**: External (YouTube Unlisted).
+    -   *Reason*: Keeps the repo size small (`.git` optimization) and allows for higher bitrate/quality without bandwidth costs.
+
+### Implementation Approach
+-   **Gallery Component**: Custom grid component that takes a list of image paths.
+-   **Video Component**: Use `astro-embed` or simple `iframe` for YouTube embeds.
+-   **Inspiration**: "How to Create an Engineering Portfolio" (YouTube). Focus on process and clarity.
+
+---
+
 ## 2026-02-15 Phase 1 Decisions: Foundation
 
 **Date:** 2026-02-15
