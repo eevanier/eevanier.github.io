@@ -31,13 +31,13 @@
 -   [x] Create the "Project Detail" page template with image/video support
 
 ### Phase 3: Core Pages
-**Status**: ⬜ Not Started
+**Status**: ✅ Complete
 **Objective**: Implement the primary user-facing pages.
 **Requirements**: REQ-01, REQ-04
--   [ ] **Home**: Hero section + Featured Projects grid
--   [ ] **Projects Index**: Filterable list of all work
--   [ ] **About**: Bio, Skills list, Resume download button
--   [ ] **Contact**: Simple email link or Netlify-ready form (if applicable)
+-   [x] **Home**: Hero section + Featured Projects grid
+-   [x] **Projects Index**: Filterable list of all work
+-   [x] **About**: Bio, Skills list, Resume download button
+-   [x] **Contact**: Simple email link or Netlify-ready form (if applicable)
 
 ### Phase 4: Polish & Interactvity
 **Status**: ⬜ Not Started
