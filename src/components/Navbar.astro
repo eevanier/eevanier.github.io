@@ -1,12 +1,69 @@
 ---
+const pathname = Astro.url.pathname;
+
+function isActive(href: string): boolean {
+  if (href === '/') return pathname === '/';
+  return pathname.startsWith(href);
+}
+
+function linkClass(href: string): string {
+  const base = 'transition-colors';
+  return isActive(href)
+    ? `${base} text-zinc-950 font-semibold`
+    : `${base} hover:text-zinc-950`;
+}
 ---
+
 <nav class="flex items-center justify-between py-6 mb-12">
   <a href="/" class="text-xl font-bold tracking-tighter hover:text-technical transition-colors">
     ELIAS.ENG
   </a>
-  <div class="flex gap-6 text-sm font-medium text-zinc-500">
-    <a href="/projects" class="hover:text-zinc-950 transition-colors">Projects</a>
-    <a href="/about" class="hover:text-zinc-950 transition-colors">About</a>
-    <a href="/contact" class="hover:text-zinc-950 transition-colors">Contact</a>
+
+  <!-- Desktop nav -->
+  <div class="hidden sm:flex gap-6 text-sm font-medium text-zinc-500">
+    <a href="/projects" class={linkClass('/projects')}>Projects</a>
+    <a href="/about" class={linkClass('/about')}>About</a>
+    <a href="/contact" class={linkClass('/contact')}>Contact</a>
   </div>
+
+  <!-- Mobile hamburger -->
+  <button id="mobile-menu-btn" class="sm:hidden flex flex-col gap-1.5 p-2 -mr-2" aria-label="Toggle menu">
+    <span class="block w-5 h-0.5 bg-zinc-950 transition-transform origin-center" id="bar1"></span>
+    <span class="block w-5 h-0.5 bg-zinc-950 transition-opacity" id="bar2"></span>
+    <span class="block w-5 h-0.5 bg-zinc-950 transition-transform origin-center" id="bar3"></span>
+  </button>
 </nav>
+
+<!-- Mobile menu overlay -->
+<div id="mobile-menu" class="fixed inset-0 z-50 bg-industrial-a/95 backdrop-blur-sm flex-col items-center justify-center gap-8 text-2xl font-medium hidden">
+  <button id="mobile-menu-close" class="absolute top-6 right-6 p-2" aria-label="Close menu">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+  </button>
+  <a href="/projects" class="text-zinc-950 hover:text-technical transition-colors">Projects</a>
+  <a href="/about" class="text-zinc-950 hover:text-technical transition-colors">About</a>
+  <a href="/contact" class="text-zinc-950 hover:text-technical transition-colors">Contact</a>
+</div>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  const closeBtn = document.getElementById('mobile-menu-close');
+
+  btn?.addEventListener('click', () => {
+    menu?.classList.remove('hidden');
+    menu?.classList.add('flex');
+  });
+
+  closeBtn?.addEventListener('click', () => {
+    menu?.classList.add('hidden');
+    menu?.classList.remove('flex');
+  });
+
+  // Close on link click
+  menu?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      menu?.classList.add('hidden');
+      menu?.classList.remove('flex');
+    });
+  });
+</script>

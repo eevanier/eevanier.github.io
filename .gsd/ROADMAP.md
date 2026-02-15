@@ -1,7 +1,7 @@
 # ROADMAP.md
 
-> **Current Phase**: Phase 3: Core Pages
-> **Milestone**: v1.0 MVP
+> **Current Phase**: All phases complete
+> **Milestone**: v1.0 MVP ✅
 
 ## Must-Haves (from SPEC)
 - [ ] Responsive Layout (Mobile/Desktop)
@@ -40,10 +40,10 @@
 -   [x] **Contact**: Simple email link or Netlify-ready form (if applicable)
 
 ### Phase 4: Polish & Interactvity
-**Status**: ⬜ Not Started
+**Status**: ✅ Complete
 **Objective**: Add the "freshness" and deploy.
 **Requirements**: REQ-06
--   [ ] Implement subtle scroll animations (framer-motion or CSS)
--   [ ] Hover effects for project cards
--   [ ] SEO Optimization (Meta tags, OpenGraph)
--   [ ] GitHub Actions workflow for deployment
+-   [x] Implement subtle scroll animations (framer-motion or CSS)
+-   [x] Hover effects for project cards
+-   [x] SEO Optimization (Meta tags, OpenGraph)
+-   [x] GitHub Actions workflow for deployment

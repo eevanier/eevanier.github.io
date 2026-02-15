@@ -8,9 +8,9 @@ const allProjects = (await getCollection('projects')).sort(
 );
 ---
 
-<Layout title="Projects">
+<Layout title="Projects" description="Browse all engineering and design projects — mechanical design, robotics, and manufacturing work.">
   <section class="py-16 space-y-10">
-    <div class="space-y-3">
+    <div class="space-y-3 reveal">
       <p class="font-mono text-sm text-technical tracking-wider uppercase">
         Archive
       </p>
@@ -24,7 +24,9 @@ const allProjects = (await getCollection('projects')).sort(
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {allProjects.map((project) => (
-        <ProjectCard project={project} />
+        <div class="reveal">
+          <ProjectCard project={project} />
+        </div>
       ))}
     </div>
   </section>

@@ -5,9 +5,19 @@ import Footer from '../components/Footer.astro';
 
 interface Props {
   title: string;
+  description?: string;
+  ogImage?: string;
 }
 
-const { title } = Astro.props;
+const {
+  title,
+  description = 'Portfolio of Elias — Mechanical Engineer specializing in precision design, robotics, and manufacturing.',
+  ogImage = '/og-default.png',
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const resolvedOGImage = new URL(ogImage, Astro.site).href;
+const fullTitle = title === 'Home' ? 'Elias Portfolio' : `${title} | Elias Portfolio`;
 ---
 
 <!doctype html>
@@ -17,7 +27,30 @@ const { title } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title} | Elias Portfolio</title>
+
+    <!-- Primary Meta Tags -->
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={resolvedOGImage} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={resolvedOGImage} />
+
+    <!-- Smooth scroll -->
+    <style>
+      html { scroll-behavior: smooth; }
+    </style>
   </head>
   <body class="max-w-4xl mx-auto px-6 sm:px-8">
     <Navbar />
@@ -25,5 +58,22 @@ const { title } = Astro.props;
       <slot />
     </main>
     <Footer />
+
+    <!-- Scroll reveal animation script -->
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('revealed');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+      );
+
+      document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+    </script>
   </body>
 </html>

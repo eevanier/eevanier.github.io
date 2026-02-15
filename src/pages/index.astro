@@ -18,9 +18,9 @@ const displayProjects =
         .slice(0, 3);
 ---
 
-<Layout title="Home">
+<Layout title="Home" description="Portfolio of Elias — Mechanical Engineer specializing in precision design, robotics, and manufacturing.">
   <!-- Hero Section -->
-  <section class="py-20 sm:py-28 space-y-6">
+  <section class="py-20 sm:py-28 space-y-6 reveal">
     <p class="font-mono text-sm text-technical tracking-wider uppercase">
       Portfolio — Engineering & Design
     </p>
@@ -48,7 +48,7 @@ const displayProjects =
   </section>
 
   <!-- Featured Projects -->
-  <section class="pb-20 space-y-8">
+  <section class="pb-20 space-y-8 reveal">
     <div class="flex items-center justify-between">
       <h2 class="text-2xl font-bold tracking-tight text-zinc-950">Featured Work</h2>
       <a
@@ -61,7 +61,9 @@ const displayProjects =
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {displayProjects.map((project) => (
-        <ProjectCard project={project} />
+        <div class="reveal">
+          <ProjectCard project={project} />
+        </div>
       ))}
     </div>
   </section>
