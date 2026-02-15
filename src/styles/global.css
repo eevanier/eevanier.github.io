@@ -1,0 +1,25 @@
+/* src/styles/global.css */
+@import "tailwindcss";
+
+@import "@fontsource/inter";
+@import "@fontsource/jetbrains-mono";
+
+@theme {
+    --color-industrial-a: #FAFAFA;
+    --color-industrial-b: #09090B;
+    --color-technical: #FF3600;
+
+    --font-sans: "Inter", sans-serif;
+    --font-mono: "JetBrains Mono", monospace;
+}
+
+@layer base {
+    body {
+        @apply bg-industrial-a text-zinc-950 antialiased;
+        font-family: var(--font-sans);
+        font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    }
+
+    /* Dark mode override if needed, or stick to light industrial for now */
+    /* For now, valid industrial look is often light gray/white technical drawings */
+}
