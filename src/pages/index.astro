@@ -1,22 +1,68 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { getCollection } from 'astro:content';
+
+const allProjects = await getCollection('projects');
+
+// Featured projects: explicit flag, fallback to 3 most recent
+const featuredProjects = allProjects
+  .filter((p) => p.data.featured)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const displayProjects =
+  featuredProjects.length > 0
+    ? featuredProjects
+    : allProjects
+        .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+        .slice(0, 3);
 ---
 
 <Layout title="Home">
-  <div class="flex flex-col items-center justify-center min-h-[50vh] text-center space-y-6">
-    <h1 class="text-4xl font-bold tracking-tight sm:text-6xl text-zinc-950">
-      Precision Engineering
-    </h1>
-    <p class="text-lg text-zinc-500 max-w-2xl">
-      Mechanical Design • Robotics • manufacturing
+  <!-- Hero Section -->
+  <section class="py-20 sm:py-28 space-y-6">
+    <p class="font-mono text-sm text-technical tracking-wider uppercase">
+      Portfolio — Engineering & Design
     </p>
-    <div class="flex gap-4 pt-4">
-      <a href="/projects" class="px-6 py-3 text-sm font-medium text-white bg-technical hover:bg-red-600 transition-colors rounded-sm">
+    <h1 class="text-5xl sm:text-7xl font-bold tracking-tighter leading-[0.9] text-zinc-950">
+      Precision<br />Engineering.
+    </h1>
+    <p class="text-lg text-zinc-500 max-w-lg leading-relaxed">
+      Mechanical Design · Robotics · Manufacturing — turning complex problems into
+      elegant, built solutions.
+    </p>
+    <div class="flex gap-4 pt-2">
+      <a
+        href="/projects"
+        class="px-6 py-3 text-sm font-medium text-white bg-zinc-950 hover:bg-technical transition-colors rounded-sm"
+      >
         View Projects
       </a>
-      <a href="/about" class="px-6 py-3 text-sm font-medium text-zinc-950 bg-zinc-100 hover:bg-zinc-200 transition-colors rounded-sm">
+      <a
+        href="/about"
+        class="px-6 py-3 text-sm font-medium text-zinc-950 border border-zinc-300 hover:border-zinc-950 transition-colors rounded-sm"
+      >
         About Me
       </a>
     </div>
-  </div>
+  </section>
+
+  <!-- Featured Projects -->
+  <section class="pb-20 space-y-8">
+    <div class="flex items-center justify-between">
+      <h2 class="text-2xl font-bold tracking-tight text-zinc-950">Featured Work</h2>
+      <a
+        href="/projects"
+        class="text-sm font-medium text-zinc-400 hover:text-technical transition-colors flex items-center gap-1"
+      >
+        All Projects
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {displayProjects.map((project) => (
+        <ProjectCard project={project} />
+      ))}
+    </div>
+  </section>
 </Layout>

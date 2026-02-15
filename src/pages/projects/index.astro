@@ -1,0 +1,31 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import { getCollection } from 'astro:content';
+
+const allProjects = (await getCollection('projects')).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+);
+---
+
+<Layout title="Projects">
+  <section class="py-16 space-y-10">
+    <div class="space-y-3">
+      <p class="font-mono text-sm text-technical tracking-wider uppercase">
+        Archive
+      </p>
+      <h1 class="text-4xl sm:text-5xl font-bold tracking-tighter text-zinc-950">
+        All Projects
+      </h1>
+      <p class="text-zinc-500 max-w-lg">
+        A complete index of engineering and design work — sorted by date, newest first.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {allProjects.map((project) => (
+        <ProjectCard project={project} />
+      ))}
+    </div>
+  </section>
+</Layout>
