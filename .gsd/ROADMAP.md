@@ -1,7 +1,8 @@
 # ROADMAP.md
 
-> **Current Phase**: All phases complete
-> **Milestone**: v1.0 MVP ✅
+> **Current Phase**: None (milestone finalized)
+> **Milestone**: v1.0 MVP ✅ COMPLETE (2026-02-15)
+> **Archived**: `.gsd/milestones/v1.0-mvp/`
 
 ## Must-Haves (from SPEC)
 - [ ] Responsive Layout (Mobile/Desktop)
