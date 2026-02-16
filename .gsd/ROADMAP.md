@@ -1,50 +1,38 @@
 # ROADMAP.md
 
-> **Current Phase**: None (milestone finalized)
-> **Milestone**: v1.0 MVP ✅ COMPLETE (2026-02-15)
-> **Archived**: `.gsd/milestones/v1.0-mvp/`
+> **Current Milestone**: v1.1 — Personalization & Content
+> **Goal**: Transform the scaffolded site into Elias's real portfolio with personal identity, hobbies, and production details.
 
-## Must-Haves (from SPEC)
-- [ ] Responsive Layout (Mobile/Desktop)
-- [ ] Project "Card" and Detail View
-- [ ] About Me & Resume Section
-- [ ] Contact Method
-- [ ] "Code-light" Content System
+## Must-Haves
+- [ ] Personal photo (placeholder) on Home page hero
+- [ ] Hobbies/Interests section on About page (Skateboarding, Snowboarding, Tricking)
+- [ ] Real contact email (eev7147@rit.edu) on Contact page
+
+## Nice-to-Haves
+- [ ] Resume PDF at `public/resume.pdf`
+- [ ] Social links in footer (LinkedIn, GitHub)
+- [ ] Custom favicon
 
 ## Phases
 
-### Phase 1: Foundation & Design System
-**Status**: ✅ Complete
-**Objective**: Initialize the Astro project and establish the "Industrial Minimalist" design language.
-**Requirements**: REQ-01, REQ-05
--   [x] Initialize Astro project with Tailwind CSS
--   [x] Define typography (e.g., Inter, JetBrains Mono for data)
--   [x] Define color palette (Monochrome + Technical Accent)
--   [x] Create reusable layout components (Navbar, Footer)
+### Phase 1: Identity & Hero Rework
+**Status**: ⬜ Not Started
+**Objective**: Rework the homepage hero into a split layout with a personal photo, and update the contact page with real email.
+- [ ] Add placeholder headshot image to `public/images/`
+- [ ] Redesign hero section to split layout (text left, photo right)
+- [ ] Replace `hello@example.com` with `eev7147@rit.edu` on Contact page
+- [ ] Update bio/headline text to feel more personal
 
-### Phase 2: Content Engine
-**Status**: ✅ Complete
-**Objective**: Build the "Code-light" system for managing projects.
-**Requirements**: REQ-02, REQ-03
--   [x] Configure Astro Content Collections for `projects`
--   [x] Design the Project Markdown schema (frontmatter)
--   [x] Create the "Project Card" component
--   [x] Create the "Project Detail" page template with image/video support
+### Phase 2: About Page — Hobbies & Interests
+**Status**: ⬜ Not Started
+**Objective**: Add a hobbies/interests section to the About page showcasing personality beyond engineering.
+- [ ] Design a "Beyond Engineering" / hobbies section
+- [ ] Add entries: Skateboarding, Snowboarding, Tricking (flips)
+- [ ] Style with icons or visual treatment consistent with the design system
 
-### Phase 3: Core Pages
-**Status**: ✅ Complete
-**Objective**: Implement the primary user-facing pages.
-**Requirements**: REQ-01, REQ-04
--   [x] **Home**: Hero section + Featured Projects grid
--   [x] **Projects Index**: Filterable list of all work
--   [x] **About**: Bio, Skills list, Resume download button
--   [x] **Contact**: Simple email link or Netlify-ready form (if applicable)
-
-### Phase 4: Polish & Interactvity
-**Status**: ✅ Complete
-**Objective**: Add the "freshness" and deploy.
-**Requirements**: REQ-06
--   [x] Implement subtle scroll animations (framer-motion or CSS)
--   [x] Hover effects for project cards
--   [x] SEO Optimization (Meta tags, OpenGraph)
--   [x] GitHub Actions workflow for deployment
+### Phase 3: Final Polish & Deploy
+**Status**: ⬜ Not Started
+**Objective**: QA pass, fix any rough edges, and push to live.
+- [ ] Visual QA across all pages (mobile + desktop)
+- [ ] Verify build succeeds
+- [ ] Push to main and confirm GitHub Pages deployment
