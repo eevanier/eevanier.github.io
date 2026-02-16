@@ -1,5 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import HobbyCard from '../components/HobbyCard.astro';
+import { Zap, Mountain, Activity } from 'lucide-astro';
 
 const skills = [
   {
@@ -63,6 +65,28 @@ const skills = [
             </ul>
           </div>
         ))}
+      </div>
+    </div>
+
+    <!-- Hobbies Section -->
+    <div class="space-y-6 reveal">
+      <h2 class="text-2xl font-bold tracking-tight text-zinc-950">Beyond Engineering</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <HobbyCard
+          title="Skateboarding"
+          description="Pushing limits and finding flow in urban environments. It teaches persistence and creative problem solving."
+          icon={Zap}
+        />
+        <HobbyCard
+          title="Snowboarding"
+          description="Carving lines and navigating terrain. A pursuit of speed, control, and appreciation for nature."
+          icon={Mountain}
+        />
+        <HobbyCard
+          title="Tricking"
+          description="A blend of kicks, flips, and twists. It demands body control, explosive power, and artistic expression."
+          icon={Activity}
+        />
       </div>
     </div>
 

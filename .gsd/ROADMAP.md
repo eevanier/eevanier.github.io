@@ -24,7 +24,7 @@
 - [ ] Update bio/headline text to feel more personal
 
 ### Phase 2: About Page — Hobbies & Interests
-**Status**: ⬜ Not Started
+**Status**: ✅ Complete
 **Objective**: Add a hobbies/interests section to the About page showcasing personality beyond engineering.
 - [ ] Design a "Beyond Engineering" / hobbies section
 - [ ] Add entries: Skateboarding, Snowboarding, Tricking (flips)
