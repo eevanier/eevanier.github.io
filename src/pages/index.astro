@@ -20,30 +20,42 @@ const displayProjects =
 
 <Layout title="Home" description="Portfolio of Elias — Mechanical Engineer specializing in precision design, robotics, and manufacturing.">
   <!-- Hero Section -->
-  <section class="py-2 sm:py-4 space-y-6 reveal">
-    <p class="font-mono text-sm text-technical tracking-wider uppercase">
-      Portfolio — Engineering & Design
-    </p>
-    <h1 class="text-5xl sm:text-7xl font-bold tracking-tighter leading-[0.9] text-zinc-950">
-      Precision<br />Engineering.
-    </h1>
-    <p class="text-lg text-zinc-500 max-w-lg leading-relaxed">
-      Mechanical Design · Robotics · Manufacturing — turning complex problems into
-      elegant, built solutions.
-    </p>
-    <div class="flex gap-4 pt-2">
-      <a
-        href="/projects"
-        class="px-6 py-3 text-sm font-medium text-white bg-zinc-950 hover:bg-technical transition-colors rounded-sm"
-      >
-        View Projects
-      </a>
-      <a
-        href="/about"
-        class="px-6 py-3 text-sm font-medium text-zinc-950 border border-zinc-300 hover:border-zinc-950 transition-colors rounded-sm"
-      >
-        About Me
-      </a>
+  <section class="py-2 sm:py-4 reveal">
+    <div class="md:grid md:grid-cols-2 gap-8 items-center">
+      <!-- Left: Text Content -->
+      <div class="space-y-6">
+        <p class="font-mono text-sm text-technical tracking-wider uppercase">
+          Mechanical Engineer & Designer
+        </p>
+        <h1 class="text-5xl sm:text-7xl font-bold tracking-tighter leading-[0.9] text-zinc-950">
+          Elias<br />Evanier.
+        </h1>
+        <p class="text-lg text-zinc-500 max-w-lg leading-relaxed">
+          RIT Student · Robotics · Manufacturing — turning complex problems into elegant, built solutions.
+        </p>
+        <div class="flex gap-4 pt-2">
+          <a
+            href="/projects"
+            class="px-6 py-3 text-sm font-medium text-white bg-zinc-950 hover:bg-technical transition-colors rounded-sm"
+          >
+            View Projects
+          </a>
+          <a
+            href="/about"
+            class="px-6 py-3 text-sm font-medium text-zinc-950 border border-zinc-300 hover:border-zinc-950 transition-colors rounded-sm"
+          >
+            About Me
+          </a>
+        </div>
+      </div>
+      <!-- Right: Headshot -->
+      <div class="mt-10 md:mt-0 flex justify-center">
+        <img
+          src="/images/headshot-placeholder.jpg"
+          alt="Elias — Mechanical Engineer"
+          class="w-full max-w-sm rounded shadow-lg border border-zinc-200"
+        />
+      </div>
     </div>
   </section>
 

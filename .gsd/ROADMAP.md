@@ -16,7 +16,7 @@
 ## Phases
 
 ### Phase 1: Identity & Hero Rework
-**Status**: ⬜ Not Started
+**Status**: ✅ Complete
 **Objective**: Rework the homepage hero into a split layout with a personal photo, and update the contact page with real email.
 - [ ] Add placeholder headshot image to `public/images/`
 - [ ] Redesign hero section to split layout (text left, photo right)
