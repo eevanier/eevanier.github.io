@@ -1,0 +1,86 @@
+﻿
+> y@0.0.1 build
+> astro build
+
+[2m23:20:37[22m [34m[content][39m Syncing content
+[2m23:20:37[22m [34m[content][39m Synced content
+[2m23:20:37[22m [34m[types][39m Generated [2m446ms[22m
+[2m23:20:37[22m [34m[build][39m output: [34m"static"[39m
+[2m23:20:37[22m [34m[build][39m mode: [34m"static"[39m
+[2m23:20:37[22m [34m[build][39m directory: [34mC:\Users\Elias\Desktop\portfolio\dist\[39m
+[2m23:20:37[22m [34m[build][39m Collecting build info...
+[2m23:20:37[22m [34m[build][39m [32mÔ£ô Completed in 468ms.[39m
+[2m23:20:37[22m [34m[build][39m Building static entrypoints...
+node.exe : 
+[31m[1m23:20:41[22m 
+[ERROR] [vite][39m 
+[31mÔ£ù[39m Build 
+failed in 4.71s
+At line:1 char:1
++ & "C:\Program 
+Files\nodejs/node.exe" 
+"C:\Program 
+Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo        
+      : NotSpecified: (  
+  [31m[1m23:20:...fail   
+ ed in 4.71s:String) [    
+], RemoteException
+    + FullyQualifiedError 
+   Id : NativeCommandErr  
+  or
+ 
+src/components/HobbyCard.a
+stro (2:9): "Icon" is not 
+exported by "node_modules/
+lucide-astro/dist/index.js
+", imported by "src/compon
+ents/HobbyCard.astro".
+file: C:/Users/Elias/Deskt
+op/portfolio/src/component
+s/HobbyCard.astro:2:9
+
+1: ---
+2: import { Icon } from 
+'lucide-astro';
+            ^
+3: 
+4: interface Props {
+
+  [1mLocation:[22m
+    [4mC:/Users/Elias/Des
+ktop/portfolio/src/compone
+nts/HobbyCard.astro:2:9[2
+4m
+  [1mStack trace:[22m
+[2m    at getRollupError 
+(file:///C:/Users/Elias/De
+sktop/portfolio/node_modul
+es/rollup/dist/es/shared/p
+arseAst.js:402:41)
+    at Module.error (file:
+///C:/Users/Elias/Desktop/
+portfolio/node_modules/rol
+lup/dist/es/shared/node-en
+try.js:17040:16)
+    at 
+ModuleScope.findVariable (
+file:///C:/Users/Elias/Des
+ktop/portfolio/node_module
+s/rollup/dist/es/shared/no
+de-entry.js:15070:39)
+    at FunctionBodyScope.f
+indVariable (file:///C:/Us
+ers/Elias/Desktop/portfoli
+o/node_modules/rollup/dist
+/es/shared/node-entry.js:5
+673:38)
+    at 
+CallExpression.bind (file:
+///C:/Users/Elias/Desktop/
+portfolio/node_modules/rol
+lup/dist/es/shared/node-en
+try.js:2825:28)[22m

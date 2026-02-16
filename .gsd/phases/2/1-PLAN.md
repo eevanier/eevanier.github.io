@@ -1,33 +1,66 @@
-# Phase 2: About Page — Hobbies & Interests
+---
+phase: 2
+plan: 1
+wave: 1
+---
 
-## Goal
-Add a hobbies/interests section to the About page showcasing personality beyond engineering.
+# Plan 2.1: Implement Hobbies & Interests Section
 
-## User Review Required
-> [!NOTE]
-> I will use placeholder images for the hobbies initially. You can replace them with real photos later.
+## Objective
+Add a "Beyond Engineering" section to the About page to showcase the user's personality and hobbies (Skateboarding, Snowboarding, Tricking). This aligns with the "Industrial Minimalist" aesthetic using clean iconography.
 
-## Proposed Changes
-### Content & Assets
-#### [NEW] `public/images/hobbies/`
-- Create directory for hobby images.
-- Add placeholder images for:
-    - Skateboarding
-    - Snowboarding
-    - Tricking
+## Context
+- .gsd/SPEC.md (Goal 1: Professional Showcase, Goal 3: Modern Experience)
+- .gsd/ROADMAP.md (Phase 2)
+- src/pages/about.astro (Target file)
+- src/components/HobbyCard.astro (New component)
+- src/styles/global.css (Global styles)
 
-### Page Structure
-#### [MODIFY] `src/pages/about.astro`
-- Add "Beyond Engineering" section.
-- Implement grid layout for hobbies.
-- Display hobby cards with image, title, and brief description.
+## Tasks
 
-## Verification Plan
-### Automated Tests
-- Run `npm run build` to ensure no build errors.
+<task type="auto">
+  <name>Install Icon Library</name>
+  <files>package.json</files>
+  <action>
+    Install `lucide-astro` to provide consistent, lightweight icons for the hobby cards.
+    Run: `npm install lucide-astro`
+  </action>
+  <verify>grep "lucide-astro" package.json</verify>
+  <done>Package installed and listed in dependencies</done>
+</task>
 
-### Manual Verification
-- Start dev server: `npm run dev`
-- Navigate to `/about`
-- Verify "Beyond Engineering" section exists
-- Verify images load and layout is responsive
+<task type="auto">
+  <name>Create HobbyCard Component</name>
+  <files>src/components/HobbyCard.astro</files>
+  <action>
+    Create a reusable `HobbyCard` component.
+    - Props: `title` (string), `description` (string), `icon` (string/component).
+    - Styling: Minimalist card with subtle border/hover effect. Use Tailwind classes.
+    - Icons: Import distinct icons from `lucide-astro` (e.g., `Activity`, `Mountain`, `Zap`).
+  </action>
+  <verify>test -f src/components/HobbyCard.astro</verify>
+  <done>Component exists and accepts props</done>
+</task>
+
+<task type="auto">
+  <name>Update About Page</name>
+  <files>src/pages/about.astro</files>
+  <action>
+    Add the "Beyond Engineering" section to `src/pages/about.astro`.
+    - Import `HobbyCard` and icons from `lucide-astro`.
+    - Define hobbies data:
+      1. Skateboarding (Icon: Activity/Zap)
+      2. Snowboarding (Icon: Mountain)
+      3. Tricking (Icon: RotateCcw/Flip)
+    - Layout: Responsive grid (1 col mobile, 3 col desktop).
+    - Visuals: Section header "Beyond Engineering" with technical accent.
+  </action>
+  <verify>npm run build</verify>
+  <done>Build succeeds and section is present in markup</done>
+</task>
+
+## Success Criteria
+- [ ] `lucide-astro` installed.
+- [ ] `HobbyCard` component created.
+- [ ] About page displays 3 hobbies in a responsive grid.
+- [ ] Build passes with no errors.
