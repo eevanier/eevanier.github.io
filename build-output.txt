@@ -1,0 +1,45 @@
+﻿[2m12:01:20[22m [34m[content][39m Syncing content
+[2m12:01:20[22m [34m[content][39m Synced content
+[2m12:01:20[22m [34m[types][39m Generated [2m435ms[22m
+[2m12:01:20[22m [34m[build][39m output: [34m"static"[39m
+[2m12:01:20[22m [34m[build][39m mode: [34m"static"[39m
+[2m12:01:20[22m [34m[build][39m directory: [34mC:\Users\Elias\Desktop\portfolio\dist\[39m
+[2m12:01:20[22m [34m[build][39m Collecting build info...
+[2m12:01:20[22m [34m[build][39m [32mÔ£ô Completed in 458ms.[39m
+[2m12:01:20[22m [34m[build][39m Building static entrypoints...
+[2m12:01:21[22m [34m[vite][39m [32mÔ£ô built in 1.36s[39m
+[2m12:01:21[22m [34m[build][39m [32mÔ£ô Completed in 1.41s.[39m
+
+[42m[30m building client (vite) [39m[49m
+[2m12:01:21[22m [34m[vite][39m transforming...
+[2m12:01:21[22m [34m[vite][39m [32mÔ£ô[39m 3 modules transformed.
+[2m12:01:21[22m [34m[vite][39m rendering chunks...
+[2m12:01:21[22m [34m[vite][39m [32mÔ£ô built in 18ms[39m
+
+[42m[30m generating static routes [39m[49m
+[2m12:01:21[22m [32mÔûÂ[39m src/pages/about.astro
+[2m12:01:21[22m   [34mÔööÔöÇ[39m [2m/about/index.html[22m [2m(+14ms)[22m 
+[2m12:01:21[22m [32mÔûÂ[39m src/pages/contact.astro
+[2m12:01:21[22m   [34mÔööÔöÇ[39m [2m/contact/index.html[22m [2m(+3ms)[22m 
+[2m12:01:21[22m [32mÔûÂ[39m src/pages/projects/index.astro
+[2m12:01:21[22m   [34mÔööÔöÇ[39m [2m/projects/index.html[22m [2m(+15ms)[22m 
+[2m12:01:21[22m [32mÔûÂ[39m src/pages/projects/[...slug].astro
+[2m12:01:21[22m   [34mÔö£ÔöÇ[39m [2m/projects/high-performance-electric-skateboards/index.html[22m [2m(+4ms)[22m 
+[2m12:01:21[22m   [34mÔö£ÔöÇ[39m [2m/projects/universal-kydex-enclosure/index.html[22m [2m(+7ms)[22m 
+[2m12:01:21[22m   [34mÔööÔöÇ[39m [2m/projects/oil-based-skateboard-paint-pens/index.html[22m [2m(+3ms)[22m 
+[2m12:01:21[22m [32mÔûÂ[39m src/pages/index.astro
+[2m12:01:21[22m   [34mÔööÔöÇ[39m [2m/index.html[22m [2m(+5ms)[22m 
+[2m12:01:21[22m [32mÔ£ô Completed in 108ms.
+[39m
+[42m[30m generating optimized images [39m[49m
+[2m12:01:21[22m   [32mÔûÂ[39m /_astro/thumbnail.D5SHf8xc_ZdFmsk.webp [2m(before: 8kB, after: 0kB)[22m [2m(+82ms)[22m [2m(1/6)[22m
+[2m12:01:21[22m   [32mÔûÂ[39m /_astro/thumbnail.BnXll3Ig_e8CMi.webp [2m(before: 8kB, after: 0kB)[22m [2m(+82ms)[22m [2m(2/6)[22m
+[2m12:01:21[22m   [32mÔûÂ[39m /_astro/thumbnail.Cclk2jlz_Z1g3ET3.webp [2m(before: 8kB, after: 0kB)[22m [2m(+83ms)[22m [2m(3/6)[22m
+[2m12:01:21[22m   [32mÔûÂ[39m /_astro/thumbnail.BnXll3Ig_KXtoG.webp [2m(before: 8kB, after: 2kB)[22m [2m(+111ms)[22m [2m(4/6)[22m
+[2m12:01:21[22m   [32mÔûÂ[39m /_astro/thumbnail.Cclk2jlz_bvhfq.webp [2m(before: 8kB, after: 2kB)[22m [2m(+110ms)[22m [2m(5/6)[22m
+[2m12:01:21[22m   [32mÔûÂ[39m /_astro/thumbnail.D5SHf8xc_1S9LUb.webp [2m(before: 8kB, after: 2kB)[22m [2m(+119ms)[22m [2m(6/6)[22m
+[2m12:01:21[22m [32mÔ£ô Completed in 202ms.
+[39m
+[2m12:01:21[22m [34m[@astrojs/sitemap][39m `sitemap-index.xml` created at `dist`
+[2m12:01:21[22m [34m[build][39m 7 page(s) built in [1m2.25s[22m
+[2m12:01:21[22m [34m[build][39m [1mComplete![22m
