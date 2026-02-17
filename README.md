@@ -35,6 +35,33 @@ Adding a new project is as simple as creating a folder and a markdown file.
 3.  **Add Images**:
     Place your `hero.jpg` and any other images directly in the project folder. You can reference them in your markdown like this: `![Alt text](./image.jpg)`.
 
+---
+title: "My New Project"
+tagline: "A cool project I built."
+date: 2024-03-20
+tags: ["Design", "Dev"]
+# Reference the thumbnail in the same folder
+thumbnail: "./thumbnail.png"
+
+# Optional: Add a gallery of images
+gallery:
+  - "./gallery-1.jpg"
+  - "./gallery-2.jpg"
+
+buildLog:
+  - stage: "Prototyping"
+    description: "Initial sketches."
+    # Optional: Add images to a specific build stage
+    images:
+      - "./sketch.png"
+---
+
+## Project Description
+
+You can also use standard Markdown to include images in the body:
+
+![Description of image](./another-view.jpg)
+
 ## 🛠️ How to Run Locally
 
 1.  **Install dependencies**:
