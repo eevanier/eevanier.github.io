@@ -1,18 +1,23 @@
-# Debug Session: GitHub Pages Jekyll Build Error
+# Debug Session: Format Layout Issue
 
 ## Symptom
-GitHub Actions showed a "Build with Jekyll" step failing. Jekyll v3.10.0 was attempting to build the repo instead of the custom Astro workflow.
+The "Market Performance" section in project details pages looks cluttered.
+- "Amazon Rating4.5 *" is mashed together.
+- Alignment of "Metric" and "Result" columns is broken or non-existent.
+- General lack of spacing.
+
+**When:** Viewing project details page (specifically `oil-based-skateboard-paint-pens`).
+**Expected:** A clean table or list with distinct columns/labels and values.
+**Actual:** Text is run together, indentation/alignment is missing.
 
 ## Root Cause
-**GitHub Pages → Settings → Source** was set to **"Deploy from a branch"**, which triggers GitHub's default Jekyll builder. The custom `deploy.yml` (Astro) was being ignored.
+The project was missing the `@tailwindcss/typography` plugin, but used the `prose` class for Markdown content. Tailwind v4 requires plugins to be explicitly loaded via CSS or config.
 
 ## Resolution
-1. User changed GitHub Pages source from "Deploy from a branch" → **"GitHub Actions"**
-2. Pushed empty commit to trigger the workflow
+1. Installed `@tailwindcss/typography`.
+2. Added `@plugin "@tailwindcss/typography";` to `src/styles/global.css`.
 
 ## Verification
-- **Site live at**: https://eevanier.github.io/
-- **Title**: "Home | Elias Portfolio"
-- **Content**: Hero section, Projects nav, Featured Work, Contact — all Astro-built content confirmed
+- Visually verified via browser screenshot that the "Market Performance" table is now correctly formatted with proper spacing and alignment.
 
 ## Status: ✅ RESOLVED
