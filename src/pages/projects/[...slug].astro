@@ -13,23 +13,40 @@ export async function getStaticPaths() {
 
 const { project } = Astro.props;
 const { Content } = await project.render();
+
+const hasBuildLog = project.data.buildLog && project.data.buildLog.length > 0;
+const hasOverviewCards = project.data.challenge || project.data.solution || project.data.outcome;
+const hasGallery = project.data.gallery && project.data.gallery.length > 0;
 ---
 
 <ProjectLayout title={project.data.title}>
   <div class="space-y-8">
+    <!-- Header -->
     <div class="space-y-4">
       <h1 class="text-4xl font-bold text-zinc-100">{project.data.title}</h1>
       <p class="text-zinc-400 text-lg">{project.data.tagline}</p>
-      
-      <div class="flex flex-wrap gap-2">
+
+      <!-- Meta row -->
+      <div class="flex flex-wrap items-center gap-3">
         {project.data.tags.map((tag) => (
           <span class="text-xs font-mono bg-zinc-800 text-zinc-300 px-2 py-0.5 rounded border border-zinc-700">
             {tag}
           </span>
         ))}
+        {project.data.role && (
+          <span class="text-xs font-mono text-amber-400 px-2 py-0.5 rounded border border-amber-700/40 bg-amber-950/30">
+            {project.data.role}
+          </span>
+        )}
+        {project.data.timeline && (
+          <span class="text-xs font-mono text-zinc-500">
+            {project.data.timeline}
+          </span>
+        )}
       </div>
     </div>
 
+    <!-- Thumbnail -->
     <div class="aspect-video w-full overflow-hidden rounded-lg border border-zinc-800 bg-zinc-900">
       <Image
         src={project.data.thumbnail}
@@ -40,6 +57,7 @@ const { Content } = await project.render();
       />
     </div>
 
+    <!-- Action buttons -->
     <div class="flex gap-4">
       {project.data.link && (
         <a 
@@ -65,8 +83,149 @@ const { Content } = await project.render();
       )}
     </div>
 
-    <article class="prose prose-invert prose-zinc max-w-none">
-      <Content />
-    </article>
+    <!-- Tab Bar -->
+    {hasBuildLog ? (
+      <div class="border-b border-zinc-700">
+        <nav class="flex gap-0" aria-label="Project sections">
+          <button
+            data-tab="overview"
+            class="tab-btn font-mono text-sm px-4 py-3 border-b-2 border-amber-500 text-zinc-100 transition-all duration-300"
+          >
+            Overview
+          </button>
+          <button
+            data-tab="buildlog"
+            class="tab-btn font-mono text-sm px-4 py-3 border-b-2 border-transparent text-zinc-500 hover:text-zinc-300 transition-all duration-300"
+          >
+            Build Log
+          </button>
+        </nav>
+      </div>
+    ) : null}
+
+    <!-- Overview Tab Panel -->
+    <div id="panel-overview" class="tab-panel space-y-8">
+      <!-- What / How / Results -->
+      {hasOverviewCards && (
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {project.data.challenge && (
+            <div class="bg-zinc-800/50 border border-zinc-700 rounded-lg p-6 space-y-2">
+              <h3 class="text-sm font-mono text-amber-500 uppercase tracking-wider">The Challenge</h3>
+              <p class="text-zinc-300 text-sm leading-relaxed">{project.data.challenge}</p>
+            </div>
+          )}
+          {project.data.solution && (
+            <div class="bg-zinc-800/50 border border-zinc-700 rounded-lg p-6 space-y-2">
+              <h3 class="text-sm font-mono text-amber-500 uppercase tracking-wider">The Approach</h3>
+              <p class="text-zinc-300 text-sm leading-relaxed">{project.data.solution}</p>
+            </div>
+          )}
+          {project.data.outcome && (
+            <div class="bg-zinc-800/50 border border-zinc-700 rounded-lg p-6 space-y-2">
+              <h3 class="text-sm font-mono text-amber-500 uppercase tracking-wider">The Results</h3>
+              <p class="text-zinc-300 text-sm leading-relaxed">{project.data.outcome}</p>
+            </div>
+          )}
+        </div>
+      )}
+
+      <!-- Gallery -->
+      {hasGallery && (
+        <div class="space-y-4">
+          <h2 class="text-lg font-mono text-zinc-300">Gallery</h2>
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+            {project.data.gallery!.map((img, i) => (
+              <div class="overflow-hidden rounded-lg border border-zinc-800 group">
+                <Image
+                  src={img}
+                  alt={`${project.data.title} gallery image ${i + 1}`}
+                  class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                  width={400}
+                  height={300}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <!-- Markdown body -->
+      <article class="prose prose-invert prose-zinc max-w-none">
+        <Content />
+      </article>
+    </div>
+
+    <!-- Build Log Tab Panel -->
+    {hasBuildLog && (
+      <div id="panel-buildlog" class="tab-panel hidden space-y-0">
+        <div class="relative pl-8 space-y-8">
+          <!-- Timeline line -->
+          <div class="absolute left-[11px] top-2 bottom-2 w-0.5 bg-zinc-700"></div>
+
+          {project.data.buildLog!.map((entry) => (
+            <div class="relative">
+              <!-- Timeline dot -->
+              <div class="absolute -left-8 top-1.5 w-[10px] h-[10px] bg-amber-500 rounded-full ring-4 ring-zinc-900"></div>
+
+              <div class="space-y-1">
+                <div class="flex items-baseline gap-3">
+                  <h3 class="text-base font-mono font-semibold text-zinc-100">{entry.stage}</h3>
+                  {entry.date && (
+                    <span class="text-xs font-mono text-zinc-500">{entry.date}</span>
+                  )}
+                </div>
+                <p class="text-sm text-zinc-400 leading-relaxed">{entry.description}</p>
+
+                {entry.images && entry.images.length > 0 && (
+                  <div class="grid grid-cols-2 gap-2 mt-3">
+                    {entry.images.map((img, i) => (
+                      <div class="overflow-hidden rounded border border-zinc-800">
+                        <Image
+                          src={img}
+                          alt={`${entry.stage} image ${i + 1}`}
+                          class="w-full h-32 object-cover"
+                          width={300}
+                          height={200}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    )}
   </div>
 </ProjectLayout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabs = document.querySelectorAll('.tab-btn');
+    const panels = document.querySelectorAll('.tab-panel');
+
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        const target = tab.getAttribute('data-tab');
+
+        // Update tab styles
+        tabs.forEach((t) => {
+          t.classList.remove('border-amber-500', 'text-zinc-100');
+          t.classList.add('border-transparent', 'text-zinc-500');
+        });
+        tab.classList.remove('border-transparent', 'text-zinc-500');
+        tab.classList.add('border-amber-500', 'text-zinc-100');
+
+        // Toggle panels
+        panels.forEach((panel) => {
+          panel.classList.add('hidden');
+        });
+        const activePanel = document.getElementById(`panel-${target}`);
+        if (activePanel) {
+          activePanel.classList.remove('hidden');
+        }
+      });
+    });
+  });
+</script>
