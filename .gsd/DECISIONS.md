@@ -1,5 +1,22 @@
 # DECISIONS.md
 
+## 2026-02-17 Phase 1 Discussion: Enhanced Project Structure
+
+**Date:** 2026-02-17
+
+### Scope & Structure
+-   **Build Logs**: "Option A" - Structured Field within project file.
+    -   *Implementation*: A `buildLog` array in the project frontmatter. Each item will represent a stage (Design, Fabrication, Assembly, Testing) and contain text + images.
+    -   *Rationale*: Keeps all project data in one file while allowing structured presentation. Supports "text and progress photos at different stages".
+
+### Implementation Approach
+-   **Layout**: "Option A" - Tabbed Interface.
+    -   *Primary View*: Overview (Standard "project card" details, gallery, challenge/solution/outcome).
+    -   *Secondary View*: Build Log (Chronological feed of progress).
+-   *Goal*: Separate the "Recruiter summary" from the "Deep dive technical process".
+
+---
+
 ## 2026-02-15 Phase 2 Decisions: Content Engine
 
 **Date:** 2026-02-15
