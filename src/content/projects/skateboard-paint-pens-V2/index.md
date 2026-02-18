@@ -3,7 +3,7 @@ title: "Oil-Based Skateboard Paint Pens V2"
 tagline: "Researched and developed a custom line of oil-based paint pens optimized for skateboard deck and griptape customization."
 date: 2021-12-01
 tags: ["Product Development", "Materials Research", "E-commerce", "Consumer Goods"]
-thumbnail: "./thumbnail.png"
+thumbnail: "./thumbnail.jpg"
 featured: true
 challenge: "Skaters lacked a dedicated, high-quality tool for customizing their boards. Standard paint pens quickly lost their vibrancy, faded, and deteriorated when applied to rough griptape and exposed to dirt and wear."
 solution: "Formulated and rigorously tested custom oil-based paint solutions engineered for high adhesion, heavy-duty durability, and sustained color vibrancy specifically on skateboard surfaces."
