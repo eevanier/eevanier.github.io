@@ -4,7 +4,7 @@ tagline: "Small indoor drone system."
 date: 2022-10-01
 tags: ["Drones", "Indoor Flight", "Robotics", "Tracking"]
 thumbnail: "./thumbnail.png"
-featured: false
+featured: true
 challenge: "Designing a small-scale drone capable of controlled indoor flight and tracking."
 solution: "Developed a compact drone platform equipped with optical flow sensors and a lightweight camera for indoor navigation. Implemented a custom tracking algorithm to follow subjects."
 outcome: "Created a functional prototype that can autonomously hover and track a target within a confined indoor space."

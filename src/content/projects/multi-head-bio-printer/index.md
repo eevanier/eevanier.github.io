@@ -4,7 +4,7 @@ tagline: "Development of a multi-head 3D bioprinter."
 date: 2021-09-01
 tags: ["Bioengineering", "3D Printing", "Hardware Design", "Research"]
 thumbnail: "./thumbnail.png"
-featured: true
+featured: false
 challenge: "Existing bioprinters were either prohibitively expensive or lacked the ability to print with multiple materials simultaneously. The challenge was to build an affordable, open-source multi-material bioprinter."
 solution: "Designed a custom tool-changer system for a standard 3D printer frame, allowing for automatic swapping of syringe pump extruders. Developed firmware modifications to support multiple extruders."
 outcome: "Successfully demonstrated multi-material prints with hydrogels and other bio-inks, proving the concept for low-cost tissue engineering research."

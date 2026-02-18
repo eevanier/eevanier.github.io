@@ -4,7 +4,7 @@ tagline: "Design and prototyping of a custom EEG headset."
 date: 2022-09-01
 tags: ["Neurotech", "Hardware Design", "Prototyping", "3D Printing"]
 thumbnail: "./thumbnail.png"
-featured: false
+featured: true
 challenge: "Commercial EEG headsets are often expensive and uncomfortable. The goal was to design a low-cost, comfortable, and reliable headset for brain-computer interface experiments."
 solution: "Designed a 3D-printable headset frame with adjustable electrode mounts. Integrated dry electrodes and a custom open-source amplifier board for signal acquisition."
 outcome: "Created a functional prototype capable of detecting alpha waves and basic motor imagery signals."

@@ -1,5 +1,5 @@
 ---
-title: "Oil-Based Skateboard Paint Pens"
+title: "Oil-Based Skateboard Paint Pens V1"
 tagline: "Researched and developed a custom line of oil-based paint pens optimized for skateboard deck and griptape customization."
 date: 2021-12-01
 tags: ["Product Development", "Materials Research", "E-commerce", "Consumer Goods"]
