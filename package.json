@@ -3,9 +3,12 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
+    "predev": "node scripts/convert-heic.js",
     "dev": "astro dev",
+    "prebuild": "node scripts/convert-heic.js",
     "build": "astro build",
     "preview": "astro preview",
+    "convert-heic": "node scripts/convert-heic.js",
     "astro": "astro"
   },
   "dependencies": {
@@ -20,6 +23,8 @@
     "typescript": "^5.9.3"
   },
   "devDependencies": {
-    "@tailwindcss/typography": "^0.5.19"
+    "@tailwindcss/typography": "^0.5.19",
+    "@types/node": "^25.5.0",
+    "heic-convert": "^2.1.0"
   }
 }

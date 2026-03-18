@@ -1,23 +1,19 @@
 # ROADMAP.md
 
-> **Current Milestone**: v1.2
-> **Goal**: Populate portfolio with 5 projects, featuring dedicated "Build Logs" and enhanced galleries.
+> **Current Milestone**: Image Gallery
+> **Goal**: Make a gallery page where I can put all of my images in easily
 
 ## Must-Haves
-- [ ] Enhanced Project Structure (What/How/Results + Build Log)
-- [x] 5 Projects Ingested (3/5 completed, 2 deferred)
-- [ ] Documentation for adding new projects
+- [ ] Create gallery page structure
+- [ ] Implement image loading from a specific directory
+- [ ] Create responsive grid layout for images
 
 ## Phases
 
-### Phase 1: Enhanced Project Structure
-**Status**: ✅ Complete
-**Objective**: Implement new content schema and layout components for enhanced project display.
+### Phase 1: Gallery Foundation
+**Status**: ⬜ Not Started
+**Objective**: Setup the gallery page route and basic grid layout.
 
-### Phase 2: Content Ingestion
-**Status**: ✅ Complete
-**Objective**: Import and format 3 portfolio projects (reduced from 5) including images and build logs.
-
-### Phase 3: Documentation & Polish
-**Status**: ✅ Complete
-**Objective**: Update README and verify user flows.
+### Phase 2: Dynamic Image Loading
+**Status**: ⬜ Not Started
+**Objective**: Implement logic to load all images from a specific folder into the gallery.

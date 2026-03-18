@@ -4,7 +4,7 @@ tagline: "FPV drone system with head-tracking capabilities."
 date: 2022-06-01
 tags: ["FPV", "Drones", "Robotics", "Head Tracking", "Immersive Technology"]
 thumbnail: "./thumbnail.png"
-featured: true
+featured: false
 challenge: "Standard FPV drone systems offer a fixed camera view, limiting situational awareness. The goal was to create a system where the camera moves in sync with the pilot's head movements for an immersive flight experience."
 solution: "Integrated a 2-axis gimbal on a custom drone frame, controlled by head-tracking sensors in the FPV goggles. Developed custom mixing logic to map head movements to gimbal servos."
 outcome: "Achieved a deeply immersive flight experience allowing the pilot to look around freely during flight, significantly enhancing situational awareness and immersion."

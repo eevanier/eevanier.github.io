@@ -4,7 +4,7 @@ tagline: "Engineered two reliable electric skateboards addressing critical safet
 date: 2020-12-01
 tags: ["Mechanical Design", "Electronics Integration", "Vehicle Dynamics", "Prototyping", "User-Centered Design"]
 thumbnail: "./thumbnail.png"
-featured: true
+featured: false
 challenge: "Early consumer electric skateboards suffered from severe safety issues — sudden power cuts without overcurrent protection, remote disconnects, and battery fire risks. Standard longboard decks also became dangerously unstable at advertised high speeds."
 solution: "Designed two purpose-built boards utilizing premium electronic speed controllers (ESCs). Built a flexible, high-torque bamboo board for rough terrain with a 28 mph top speed, and a stiff maple board optimized for high-speed stability at 40 mph."
 outcome: "Successfully brought both boards to market. The project served as a masterclass in user-centered design — pivoting from building for personal preferences to integrating direct community feedback from Reddit and forums into the final products."

@@ -4,7 +4,7 @@ tagline: "High-speed pursuit drone platform."
 date: 2022-04-01
 tags: ["Drones", "High Speed", "Video Production", "FPV"]
 thumbnail: "./thumbnail.png"
-featured: true
+featured: false
 challenge: "Capturing fast-moving subjects like cars or other drones requires a platform that is extremely fast, agile, and stable. Off-the-shelf drones often lack the necessary top speed or maneuverability."
 solution: "Built a custom carbon fiber quadcopter optimized for speed and aerodynamic efficiency. Tuned the power system and PID controller for aggressive flight characteristics."
 outcome: "Achieved flight speeds exceeding 100mph while carrying a high-quality action camera, enabling cinematic chase footage."

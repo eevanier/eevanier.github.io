@@ -1,0 +1,239 @@
+---
+import Layout from "../layouts/Layout.astro";
+import * as fs from "node:fs";
+import * as path from "node:path";
+
+// Read all files from public/images/gallery
+const galleryDir = path.join(process.cwd(), "public", "images", "gallery");
+let images = [];
+try {
+  if (fs.existsSync(galleryDir)) {
+    const files = fs.readdirSync(galleryDir);
+    images = files
+      .filter((file) => file.match(/\.(jpg|jpeg|png|gif|webp|heic)$/i))
+      .map((file) => `/images/gallery/${file}`);
+  }
+} catch (error) {
+  console.error("Error reading gallery directory:", error);
+}
+// Read all videos from public/videos/gallery
+const videoDir = path.join(process.cwd(), "public", "videos", "gallery");
+let videos = [];
+try {
+  if (fs.existsSync(videoDir)) {
+    const files = fs.readdirSync(videoDir);
+    videos = files
+      .filter((file) => file.match(/\.(mp4|webm|ogg|mov)$/i))
+      .map((file) => `/videos/gallery/${file}`);
+  }
+} catch (error) {
+  console.error("Error reading video directory:", error);
+}
+
+// Read all documents from public/documents/gallery
+const docDir = path.join(process.cwd(), "public", "documents", "gallery");
+let documents = [];
+try {
+  if (fs.existsSync(docDir)) {
+    const files = fs.readdirSync(docDir);
+    documents = files
+      .filter((file) => file.match(/\.(pdf|pptx|docx|txt)$/i))
+      .map((file) => ({
+        name: file,
+        url: `/documents/gallery/${file}`,
+      }));
+  }
+} catch (error) {
+  console.error("Error reading document directory:", error);
+}
+---
+
+<Layout
+  title="Gallery"
+  description="A collection of project and mechanical engineering images."
+>
+  <div class="space-y-20 pb-20 reveal">
+    <section class="space-y-12">
+      <header class="space-y-4">
+        <h1 class="text-4xl font-bold tracking-tight text-zinc-950">
+          Video Gallery
+        </h1>
+      </header>
+
+      {
+        videos.length === 0 ? (
+          <div class="border border-dashed border-zinc-200 rounded-2xl p-12 text-center text-zinc-500">
+            <p>
+              No videos found in{" "}
+              <code class="font-mono text-xs bg-zinc-100 px-1 py-0.5 rounded">
+                public/videos/gallery
+              </code>
+              .
+            </p>
+          </div>
+        ) : (
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {videos.map((src, idx) => (
+              <div class="relative overflow-hidden rounded-xl border border-zinc-100 bg-zinc-50 group">
+                <video
+                  src={src}
+                  controls
+                  preload="metadata"
+                  class="w-full h-auto rounded-xl object-cover transform transition-transform duration-500"
+                />
+              </div>
+            ))}
+          </div>
+        )
+      }
+    </section>
+
+    <section class="space-y-12">
+      <header class="space-y-4 border-t border-zinc-100 pt-12">
+        <h2 class="text-3xl font-bold tracking-tight text-zinc-950">
+          Image Gallery
+        </h2>
+      </header>
+
+      {
+        images.length === 0 ? (
+          <div class="border border-dashed border-zinc-200 rounded-2xl p-12 text-center text-zinc-500">
+            <p>
+              No images found in{" "}
+              <code class="font-mono text-xs bg-zinc-100 px-1 py-0.5 rounded">
+                public/images/gallery
+              </code>
+              .
+            </p>
+          </div>
+        ) : (
+          <div class="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
+            {images.map((src, idx) => (
+              <div class="break-inside-avoid relative group overflow-hidden rounded-xl border border-zinc-100 bg-zinc-50">
+                <a href={`#lightbox-${idx}`} class="block cursor-zoom-in">
+                  <img
+                    src={src}
+                    alt={`Gallery visual ${idx + 1}`}
+                    class="w-full h-auto object-cover transform transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  <div class="absolute inset-0 bg-zinc-950/0 group-hover:bg-industrial-a/10 transition-colors duration-300" />
+                </a>
+              </div>
+            ))}
+          </div>
+        )
+      }
+    </section>
+
+    <section class="space-y-12">
+      <header class="space-y-4 border-t border-zinc-100 pt-12">
+        <h2 class="text-3xl font-bold tracking-tight text-zinc-950">
+          Documents & Presentations
+        </h2>
+      </header>
+
+      {
+        documents.length === 0 ? (
+          <div class="border border-dashed border-zinc-200 rounded-2xl p-12 text-center text-zinc-500">
+            <p>
+              No documents found in{" "}
+              <code class="font-mono text-xs bg-zinc-100 px-1 py-0.5 rounded">
+                public/documents/gallery
+              </code>
+              .
+            </p>
+          </div>
+        ) : (
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {documents.map((doc) => (
+              <a
+                href={doc.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="group flex items-center gap-4 p-4 rounded-xl border border-zinc-200 bg-white hover:border-zinc-300 hover:shadow-sm transition-all"
+              >
+                <div class="p-3 bg-zinc-50 rounded-lg text-zinc-400 group-hover:text-zinc-950 transition-colors">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
+                    <polyline points="14 2 14 8 20 8" />
+                  </svg>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <p class="text-sm font-medium text-zinc-900 truncate">
+                    {doc.name}
+                  </p>
+                  <p class="text-xs text-zinc-500 uppercase mt-0.5">
+                    {doc.name.split(".").pop()} Document
+                  </p>
+                </div>
+              </a>
+            ))}
+          </div>
+        )
+      }
+    </section>
+  </div>
+
+  {/* Lightbox Implementation Using CSS Targets */}
+  {
+    images.map((src, idx) => (
+      <div
+        id={`lightbox-${idx}`}
+        class="fixed inset-0 z-[100] bg-zinc-950/95 backdrop-blur-sm opacity-0 invisible pointer-events-none transition-all duration-300 target:opacity-100 target:visible target:pointer-events-auto flex justify-center items-center"
+      >
+        <a
+          href="#!"
+          class="absolute inset-0 cursor-default"
+          aria-label="Close lightbox"
+        />
+        <div class="relative max-w-6xl max-h-[90vh] w-full p-4 sm:p-8 flex justify-center items-center pointer-events-none transform scale-95 transition-transform duration-300 target:scale-100">
+          <img
+            src={src}
+            alt={`Gallery visual ${idx + 1}`}
+            class="max-h-[85vh] w-auto max-w-full rounded-md shadow-2xl pointer-events-auto"
+          />
+          <a
+            href="#!"
+            class="absolute top-0 right-0 sm:top-4 sm:right-4 p-2 text-zinc-400 hover:text-white transition-colors bg-zinc-900/50 rounded-full backdrop-blur-md pointer-events-auto"
+            aria-label="Close"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <>
+                <path d="M18 6 6 18" />
+                <path d="m6 6 12 12" />
+              </>
+            </svg>
+          </a>
+        </div>
+      </div>
+    ))
+  }
+</Layout>
+
+<style>
+  /* Ensure smooth scrolling works well with the target lightbox */
+  html {
+    scroll-behavior: smooth;
+  }
+</style>
