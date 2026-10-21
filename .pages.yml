@@ -1,0 +1,132 @@
+# Pages CMS — web editor for this site. Open https://app.pagescms.org,
+# sign in with GitHub and pick this repo. See README.md for the walkthrough.
+
+media:
+  - name: projects
+    label: Project photos
+    input: src/assets/projects
+    output: /src/assets/projects
+    rename: safe
+    extensions: [jpg, jpeg, png, webp, gif]
+
+content:
+  - name: projects
+    label: Projects
+    type: collection
+    path: src/content/projects
+    format: yaml-frontmatter
+    filename: "{primary}.md"
+    view:
+      fields: [title, date, featured]
+      primary: title
+      sort: [date, title]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: tagline
+        label: Tagline
+        description: One line shown under the title and on the project card.
+        type: string
+        required: true
+      - name: date
+        label: Date
+        description: Used to sort projects (newest first).
+        type: date
+        required: true
+      - name: tags
+        label: Tags
+        type: string
+        list: true
+      - name: thumbnail
+        label: Cover photo
+        description: Shown on the project card and at the top of the page. Wide (16:9) photos look best.
+        type: image
+        required: true
+        options:
+          media: projects
+      - name: featured
+        label: Show on home page
+        type: boolean
+      - name: link
+        label: Project link (optional)
+        type: string
+      - name: repository
+        label: Code link (optional)
+        type: string
+
+      - name: summary
+        label: Summary
+        description: 1–2 sentences. What problem existed, and what you built.
+        type: text
+
+      - name: contributions
+        label: What I did
+        description: Short bullets on what YOU did that was unique or clever. 2–5 is ideal.
+        type: string
+        list: true
+
+      - name: specs
+        label: Specs
+        description: Key numbers (e.g. Top speed → 40 mph).
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{label}: {value}"
+        fields:
+          - name: label
+            type: string
+          - name: value
+            type: string
+
+      - name: highlights
+        label: Technical highlights
+        description: The deep-dives. One heading per interesting problem you solved, with the photos that explain it.
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+        fields:
+          - name: title
+            label: Heading
+            type: string
+            required: true
+          - name: body
+            label: Write-up
+            description: "Markdown works: **bold**, - bullet lists. Text inside <!-- --> is hidden from the site."
+            type: text
+            required: true
+          - name: images
+            label: Photos
+            type: object
+            list: true
+            fields:
+              - name: src
+                label: Photo
+                type: image
+                options:
+                  media: projects
+              - name: caption
+                label: Caption
+                type: string
+
+      - name: gallery
+        label: Extra photos
+        description: Photos that don't belong to a specific highlight.
+        type: object
+        list: true
+        fields:
+          - name: src
+            label: Photo
+            type: image
+            options:
+              media: projects
+          - name: caption
+            label: Caption
+            type: string

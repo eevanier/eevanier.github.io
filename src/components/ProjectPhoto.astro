@@ -1,0 +1,43 @@
+---
+/*
+ * A project photo with an optional caption. Clicking it opens the
+ * full-size version in the lightbox (see Lightbox.astro).
+ */
+import type { ImageMetadata } from 'astro';
+import { Image, getImage } from 'astro:assets';
+
+interface Props {
+  src: ImageMetadata;
+  caption?: string;
+  alt: string;
+  /** Thumbnail width in px; the lightbox loads a larger version. */
+  width?: number;
+  class?: string;
+  /** Wide (16:9) crop — used when a highlight has a single photo. */
+  wide?: boolean;
+}
+
+const { src, caption, alt, width = 800, class: className = '', wide = false } = Astro.props;
+const full = await getImage({ src, width: Math.min(src.width, 2000), format: 'webp' });
+---
+
+<figure class={`space-y-2 ${className}`}>
+  <button
+    type="button"
+    class="lightbox-trigger block w-full overflow-hidden rounded-lg border border-zinc-200 bg-zinc-100 group cursor-zoom-in"
+    data-full={full.src}
+    data-caption={caption ?? ''}
+    data-alt={caption || alt}
+    aria-label={`Enlarge image: ${caption || alt}`}
+  >
+    <Image
+      src={src}
+      alt={caption || alt}
+      width={width}
+      class={`w-full ${wide ? 'aspect-video' : 'aspect-[4/3]'} object-cover group-hover:scale-[1.03] transition-transform duration-300`}
+    />
+  </button>
+  {caption && (
+    <figcaption class="text-xs font-mono text-zinc-500 leading-relaxed">{caption}</figcaption>
+  )}
+</figure>
