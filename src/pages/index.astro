@@ -7,30 +7,26 @@ import * as path from "node:path";
 
 const allProjects = await getCollection("projects");
 
+// Home page is drone-focused.
+// Gallery strip: these photos from public/images/gallery, in this order.
+// Swap names here to change what shows (files that don't exist are skipped).
+const HOME_GALLERY = [
+  "drone elais-18.jpg",
+  "Drone Picture_2.JPG",
+  "IMG_4349.png",
+  "drone elais1.jpg",
+  "Folloer frame.PNG",
+];
 const galleryDir = path.join(process.cwd(), "public", "images", "gallery");
-let galleryImages = [];
-try {
-  if (fs.existsSync(galleryDir)) {
-    galleryImages = fs.readdirSync(galleryDir)
-      .filter((file) => file.match(/\.(jpg|jpeg|png|gif|webp|heic)$/i))
-      .map((file) => `/images/gallery/${file}`)
-      .slice(0, 5);
-  }
-} catch (e) {
-  console.error("Error reading gallery for preview:", e);
-}
+const galleryImages = HOME_GALLERY
+  .filter((file) => fs.existsSync(path.join(galleryDir, file)))
+  .map((file) => `/images/gallery/${encodeURIComponent(file)}`);
 
-// Featured projects: explicit flag, fallback to 3 most recent
-const featuredProjects = allProjects
-  .filter((p) => p.data.featured)
-  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
-
-const displayProjects =
-  featuredProjects.length > 0
-    ? featuredProjects
-    : allProjects
-        .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
-        .slice(0, 3);
+// Projects: the 3 newest projects tagged "Drones".
+const displayProjects = allProjects
+  .filter((p) => p.data.tags.includes("Drones"))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 3);
 ---
 
 <Layout
@@ -84,7 +80,7 @@ const displayProjects =
   <section class="pb-4 space-y-8 reveal">
     <div class="flex items-center justify-between">
       <h2 class="text-2xl font-bold tracking-tight text-zinc-950">
-        Featured Work
+        Drone Projects
       </h2>
       <a
         href="/projects"
@@ -137,7 +133,7 @@ const displayProjects =
             <a href="/gallery" class="group relative block overflow-hidden rounded-xl border border-zinc-100 bg-zinc-50 aspect-square shadow-sm hover:shadow-md transition-shadow duration-300">
               <img 
                 src={src} 
-                alt="Gallery Preview" 
+                alt="Drone photo"
                 class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105"
                 loading="lazy"
               />
