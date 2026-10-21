@@ -3,12 +3,22 @@ import Layout from '../../layouts/Layout.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
 import { getCollection } from 'astro:content';
 
-const allProjects = (await getCollection('projects')).sort(
-  (a, b) => b.data.date.getTime() - a.data.date.getTime()
-);
+const byNewest = (a: { data: { date: Date } }, b: { data: { date: Date } }) =>
+  b.data.date.getTime() - a.data.date.getTime();
+
+// Drone projects (tagged "Drones" or "FPV") are listed first, then everything else.
+const allProjects = await getCollection('projects');
+const DRONE_TAGS = ['Drones', 'FPV'];
+const isDrone = (p: (typeof allProjects)[number]) =>
+  p.data.tags.some((t) => DRONE_TAGS.includes(t));
+
+const groups = [
+  { label: 'Drones', projects: allProjects.filter(isDrone).sort(byNewest) },
+  { label: 'Other Work', projects: allProjects.filter((p) => !isDrone(p)).sort(byNewest) },
+].filter((g) => g.projects.length > 0);
 ---
 
-<Layout title="Projects" description="Browse all engineering and design projects — mechanical design, robotics, and manufacturing work.">
+<Layout title="Projects" description="Browse all engineering and design projects — drones, mechanical design, robotics, and manufacturing work.">
   <section class="py-16 space-y-10">
     <div class="space-y-3 reveal">
       <p class="font-mono text-sm text-technical tracking-wider uppercase">
@@ -18,16 +28,24 @@ const allProjects = (await getCollection('projects')).sort(
         All Projects
       </h1>
       <p class="text-zinc-500 max-w-lg">
-        A complete index of engineering and design work — sorted by date, newest first.
+        A complete index of engineering and design work — drone projects first, then everything else, newest first.
       </p>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      {allProjects.map((project) => (
-        <div class="reveal">
-          <ProjectCard project={project} />
+    {groups.map((group) => (
+      <div class="space-y-6">
+        <h2 class="font-mono text-sm text-zinc-500 tracking-wider uppercase border-b border-zinc-200 pb-3 reveal">
+          {group.label}
+          <span class="text-zinc-400">· {group.projects.length}</span>
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {group.projects.map((project) => (
+            <div class="reveal">
+              <ProjectCard project={project} />
+            </div>
+          ))}
         </div>
-      ))}
-    </div>
+      </div>
+    ))}
   </section>
 </Layout>
