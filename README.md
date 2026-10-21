@@ -1,80 +1,81 @@
 # Elias's Portfolio
 
-A personal portfolio website built with [Astro](https://astro.build) and [Tailwind CSS v4](https://tailwindcss.com).
-Designed to showcase projects with detailed build logs and galleries.
+Personal portfolio built with [Astro](https://astro.build) and [Tailwind CSS v4](https://tailwindcss.com), deployed to GitHub Pages on every push to `main`.
 
-## 🚀 Tech Stack
+## Editing in the browser (Pages CMS)
 
-- **Framework**: Astro
-- **Styling**: Tailwind CSS v4
-- **Content**: Markdown & Astro Content Collections
+The easiest way to update the site — works from any computer or your phone.
 
-## 📝 How to Add a New Project
+1. Go to **https://app.pagescms.org** and sign in with GitHub.
+2. Pick the `eevanier/eevanier.github.io` repo (first time only: approve the Pages CMS GitHub app for this repo).
+3. Open **Projects**, click a project, edit, and hit **Save**. Each save is a commit to `main`, and the site redeploys in about a minute.
 
-Adding a new project is as simple as creating a folder and a markdown file.
+**Adding photos:** in any photo field click *Select image → Upload*. Upload into the project's own folder (e.g. `pursuit-drone/`) so things stay tidy — create the folder in **Media** first for a new project. Phone photos are fine; the site resizes and compresses them automatically.
 
-1.  **Create a Project Folder**:
-    Navigate to `src/content/projects/` and create a new folder for your project (e.g., `my-new-project`).
+**New project:** *Projects → Add an entry*. Fill in title, tagline, date, tags and a cover photo; everything else is optional and can be added later.
 
-2.  **Add `index.md`**:
-    Inside your new folder, create an `index.md` file with the following frontmatter:
+## How a project page is structured
 
-    ```markdown
-    ---
-    title: "My New Project"
-    description: "A brief description of what this project is about."
-    date: 2023-10-27
-    tags: ["Tag1", "Tag2"]
-    heroImage: "./hero.jpg"
-    featured: true # Optional: Set to true to display on the home page
-    ---
+Projects focus on **what you did that was unique and the technical parts**, not a timeline.
 
-    Your project content goes here...
-    ```
+| Field | What goes in it |
+|---|---|
+| `summary` | 1–2 sentences: what problem existed and what you built. |
+| `contributions` ("What I Did") | 2–5 short bullets on what *you* did that was clever or unusual. |
+| `specs` | Key numbers — top speed, cost per unit, weight, battery config. |
+| `highlights` | The deep-dives. One heading per interesting problem, a short write-up, and the photos that explain it (with captions). |
+| `gallery` | Extra photos that don't belong to a specific highlight. |
 
-3.  **Add Images**:
-    Place your `hero.jpg` and any other images directly in the project folder. You can reference them in your markdown like this: `![Alt text](./image.jpg)`.
+Only `title`, `tagline`, `date`, `tags` and `thumbnail` are required — empty sections simply don't appear.
 
+**Writing tips:** lead each highlight with the problem, then what you did about it, then the result (a number if you have one). Photos of CAD, test rigs, failures and close-ups of mechanisms say more than glamour shots.
+
+## Editing files directly
+
+Each project is one file plus a folder of photos:
+
+```
+src/content/projects/pursuit-drone.md     ← the text
+src/assets/projects/pursuit-drone/         ← its photos
+```
+
+Image paths are written from the site root. Minimal example:
+
+```yaml
 ---
 title: "My New Project"
-tagline: "A cool project I built."
-date: 2024-03-20
-tags: ["Design", "Dev"]
-# Reference the thumbnail in the same folder
-thumbnail: "./thumbnail.png"
-
-# Optional: Add a gallery of images
-gallery:
-  - "./gallery-1.jpg"
-  - "./gallery-2.jpg"
-
-buildLog:
-  - stage: "Prototyping"
-    description: "Initial sketches."
-    # Optional: Add images to a specific build stage
+tagline: "One line about it."
+date: 2026-10-01
+tags: ["Robotics", "CAD"]
+thumbnail: "/src/assets/projects/my-new-project/cover.jpg"
+summary: "What problem existed and what I built."
+contributions:
+  - "The clever thing I did."
+specs:
+  - label: "Top speed"
+    value: "40 mph"
+highlights:
+  - title: "The interesting problem"
+    body: |
+      What was hard, what I did about it, and how it turned out.
+      **Markdown** works here. <!-- notes in comments stay hidden -->
     images:
-      - "./sketch.png"
+      - src: "/src/assets/projects/my-new-project/mechanism.jpg"
+        caption: "Close-up of the mechanism."
+gallery:
+  - src: "/src/assets/projects/my-new-project/extra.jpg"
+    caption: "Optional caption."
 ---
+```
 
-## Project Description
+Anything written below the closing `---` shows at the bottom of the page as free-form notes.
 
-You can also use standard Markdown to include images in the body:
+See [CONTENT_TODO.md](./CONTENT_TODO.md) for the details each existing project still needs.
 
-![Description of image](./another-view.jpg)
+## Run locally
 
-## 🛠️ How to Run Locally
-
-1.  **Install dependencies**:
-    ```sh
-    npm install
-    ```
-
-2.  **Start the development server**:
-    ```sh
-    npm run dev
-    ```
-
-3.  **Build for production**:
-    ```sh
-    npm run build
-    ```
+```sh
+npm install
+npm run dev      # http://localhost:4321
+npm run build    # production build into dist/
+```

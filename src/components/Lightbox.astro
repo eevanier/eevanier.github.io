@@ -1,0 +1,40 @@
+---
+/* Full-screen image viewer for any `.lightbox-trigger` on the page. */
+---
+
+<dialog
+  id="lightbox"
+  class="m-auto max-w-[95vw] max-h-[95vh] bg-transparent p-0 backdrop:bg-zinc-950/85"
+>
+  <figure class="space-y-3">
+    <img id="lightbox-img" src="" alt="" class="max-w-[95vw] max-h-[85vh] object-contain rounded" />
+    <figcaption id="lightbox-caption" class="text-sm font-mono text-zinc-200 text-center"></figcaption>
+  </figure>
+  <form method="dialog" class="absolute top-2 right-2">
+    <button
+      class="w-9 h-9 rounded-full bg-zinc-950/70 text-white hover:bg-amber-600 transition-colors"
+      aria-label="Close"
+    >✕</button>
+  </form>
+</dialog>
+
+<script>
+  const dialog = document.getElementById('lightbox') as HTMLDialogElement | null;
+  const img = document.getElementById('lightbox-img') as HTMLImageElement | null;
+  const cap = document.getElementById('lightbox-caption');
+
+  if (dialog && img && cap) {
+    document.querySelectorAll<HTMLElement>('.lightbox-trigger').forEach((el) => {
+      el.addEventListener('click', () => {
+        img.src = el.dataset.full ?? '';
+        img.alt = el.dataset.alt ?? '';
+        cap.textContent = el.dataset.caption ?? '';
+        dialog.showModal();
+      });
+    });
+    // Click outside the image closes it.
+    dialog.addEventListener('click', (e) => {
+      if (e.target === dialog) dialog.close();
+    });
+  }
+</script>
