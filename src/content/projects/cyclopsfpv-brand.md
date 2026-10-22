@@ -3,8 +3,7 @@ title: "Cyclops FPV Brand"
 tagline: "Brand identity for Cyclops FPV."
 date: 2021-06-01
 tags: ["Branding", "Identity Design", "Logo Design", "FPV"]
-# TODO: thumbnail is a blank placeholder — add the logo or a brand board.
-thumbnail: "/src/assets/projects/cyclopsfpv-brand/thumbnail.png"
+thumbnail: "/src/assets/projects/cyclopsfpv-brand/cover.png"
 featured: false
 summary: "A visual identity for an FPV drone brand, built to read as technical and fast for competitive pilots and hobbyists."
 contributions:
@@ -17,5 +16,10 @@ highlights:
     body: |
       The logo was designed to work tiny — on a drone arm, a sticker, a video watermark — and still read instantly. The style draws on HUD displays and cyberpunk visuals.
 
-      <!-- TODO: add logo variations and early sketches as images. -->
+      <!-- TODO: add early sketches as images. -->
+    images:
+      - src: "/src/assets/projects/cyclopsfpv-brand/icon.png"
+        caption: "Icon mark."
+      - src: "/src/assets/projects/cyclopsfpv-brand/wordmark-black.png"
+        caption: "Wordmark in black."
 ---

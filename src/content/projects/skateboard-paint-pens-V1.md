@@ -5,12 +5,24 @@ tagline: "The first version of my oil-based paint pens for skateboard decks and 
 # TODO: same date as V2 — set the real V1 date.
 date: 2021-12-01
 tags: ["Product Development", "Materials Research", "Consumer Goods"]
-# TODO: thumbnail is a blank placeholder — add a photo of the V1 pens.
-thumbnail: "/src/assets/projects/skateboard-paint-pens-V1/thumbnail.png"
+thumbnail: "/src/assets/projects/skateboard-paint-pens-V1/cover.jpg"
 featured: false
 summary: "The first version of my oil-based skateboard paint pens, built to fix how quickly standard markers faded on griptape."
 contributions:
   - "Sourced and bench-tested paint bases against skateboard griptape for wear and color retention."
   - "Designed the first applicator and packaging for the line."
   # TODO: what did you learn from V1 that changed V2?
+gallery:
+  - src: "/src/assets/projects/skateboard-paint-pens-V1/pens-and-nibs.jpg"
+    caption: "The 8 colors with their nibs."
+  - src: "/src/assets/projects/skateboard-paint-pens-V1/box-back.jpg"
+    caption: "Back of the box, with the usage steps."
+  - src: "/src/assets/projects/skateboard-paint-pens-V1/box-dieline.jpg"
+    caption: "Flat box artwork."
+  - src: "/src/assets/projects/skateboard-paint-pens-V1/vs-posca.jpg"
+    caption: "Next to a Posca marker for comparison."
+  - src: "/src/assets/projects/skateboard-paint-pens-V1/deck-art.jpg"
+    caption: "Artwork painted on a deck."
+  - src: "/src/assets/projects/skateboard-paint-pens-V1/amazon-listing.jpg"
+    caption: "Amazon listing for the 8-pen set."
 ---

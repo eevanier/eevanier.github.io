@@ -32,4 +32,6 @@ highlights:
 gallery:
   - src: "/src/assets/projects/tracker-drone/drone-elais-21.jpg"
     caption: "Full kit — drone, goggles, controller and backpack."
+  - src: "/src/assets/projects/tracker-drone/frame-cad.png"
+    caption: "Frame plate modeled in CAD."
 ---

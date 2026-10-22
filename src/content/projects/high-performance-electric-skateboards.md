@@ -3,8 +3,7 @@ title: "High-Performance Electric Skateboards"
 tagline: "Two purpose-built electric skateboards that fixed the safety, speed and stability flaws of early consumer boards."
 date: 2020-12-01
 tags: ["Mechanical Design", "Electronics Integration", "Vehicle Dynamics", "Prototyping"]
-# TODO: thumbnail is a blank placeholder — replace with a photo of the boards.
-thumbnail: "/src/assets/projects/high-performance-electric-skateboards/thumbnail.png"
+thumbnail: "/src/assets/projects/high-performance-electric-skateboards/cover.jpg"
 featured: false
 summary: "Early consumer e-boards cut power without warning, dropped their remote link and ran unprotected batteries — and standard longboard decks got dangerously unstable at their advertised speeds. I designed two boards, each tuned for one riding style, that solved those failure modes."
 contributions:
@@ -27,7 +26,15 @@ highlights:
       - **Maple high-speed board (40 mph):** stiff maple layup that keeps the trucks planted and the board tracking straight.
 
       <!-- TODO: how did you test flex? layup count, deflection test, truck angle/bushings chosen? -->
-    # TODO: add images: a photo of each deck, or a side-by-side.
+    images:
+      - src: "/src/assets/projects/high-performance-electric-skateboards/decks.jpg"
+        caption: "The two deck shapes after cutting."
+      - src: "/src/assets/projects/high-performance-electric-skateboards/deck-edge.jpg"
+        caption: "Edge of a deck, showing the laminated plies."
+      - src: "/src/assets/projects/high-performance-electric-skateboards/deck-cad.jpg"
+        caption: "Deck shape modeled in CAD."
+      - src: "/src/assets/projects/high-performance-electric-skateboards/deck-cad-top.jpg"
+        caption: "Top view of the deck outline in CAD."
   - title: "Designing out the failure modes"
     body: |
       Every component choice traced back to a specific way consumer boards were failing riders:
@@ -37,7 +44,24 @@ highlights:
       - **Battery fire risk** → properly rated cells with BMS protection.
 
       <!-- TODO: name the ESC / remote / cell model, and how you tested each failsafe. -->
+    images:
+      - src: "/src/assets/projects/high-performance-electric-skateboards/drivetrain-cad.jpg"
+        caption: "Motor mount and drivetrain modeled in CAD."
+      - src: "/src/assets/projects/high-performance-electric-skateboards/wiring.jpg"
+        caption: "Wiring and setting up the electronics."
   - title: "Designing for riders, not just myself"
     body: |
       The first prototypes reflected my own riding preferences. Feedback from forums and Reddit showed most riders cared more about comfort and predictable braking than raw speed and hard acceleration, so I re-tuned deck profiles and ESC settings for that market.
+    images:
+      - src: "/src/assets/projects/high-performance-electric-skateboards/rider-feedback.jpg"
+        caption: "Rider feedback on a Reddit launch post."
+      - src: "/src/assets/projects/high-performance-electric-skateboards/web-listing.jpg"
+        caption: "Deck listed for sale on the brand website."
+gallery:
+  - src: "/src/assets/projects/high-performance-electric-skateboards/board-outdoors.jpg"
+    caption: "A finished board outdoors."
+  - src: "/src/assets/projects/high-performance-electric-skateboards/board-gloves-remote.jpg"
+    caption: "Board with riding gloves and the remote."
+  - src: "/src/assets/projects/high-performance-electric-skateboards/render.jpg"
+    caption: "Render of a complete board."
 ---

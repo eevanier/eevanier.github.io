@@ -6,7 +6,7 @@ tags:
   - Product Design
   - Packaging Design
   - Kit
-thumbnail: /src/assets/projects/growables-kit/thumbnail.png
+thumbnail: /src/assets/projects/growables-kit/cover.jpg
 hidden: true
 featured: false
 summary: A beginner gardening kit — seeds, soil, pots and instructions —

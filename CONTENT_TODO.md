@@ -3,7 +3,7 @@
 The projects were moved to the new format using the text that was already on the site. Some of that text was generic, so these are the gaps worth filling — roughly in order of how much they'd improve the page. `# TODO` / `<!-- TODO -->` notes in each file point to the same spots (comments inside write-ups never show on the live site).
 
 ## Site-wide
-- [ ] **Blank cover photos** — these thumbnails are empty white placeholders: Cheap Drone Swarm, Cyclops FPV Brand, Growables Brand, Growables Kit, High-Performance Electric Skateboards, Multi-Head Bio Printer, Paint Pens V1.
+- [ ] **Blank cover photo** — Multi-Head Bio Printer still has an empty placeholder (its Dropbox folder is empty).
 - [ ] **Paint Pens V1 vs V2** — the two pages were word-for-word identical. Either describe what V1 was and what V2 changed, or delete V1.
 - [ ] **Check every "What I Did" list** — they were rebuilt from the old text. Keep what's true, cut what isn't, and add the thing you're proudest of.
 

@@ -6,7 +6,7 @@ tags:
   - Branding
   - Identity Design
   - Packaging
-thumbnail: /src/assets/projects/growables-brand/thumbnail.png
+thumbnail: /src/assets/projects/growables-brand/cover.jpg
 hidden: true
 featured: false
 summary: A friendly, sustainable identity for a line of gardening products aimed
