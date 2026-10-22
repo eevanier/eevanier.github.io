@@ -8,7 +8,7 @@ import { getCollection } from 'astro:content';
 const DRONE_TAGS = ['Drones', 'FPV'];
 const isDrone = (tags: string[]) => tags.some((t) => DRONE_TAGS.includes(t));
 
-const allProjects = (await getCollection('projects')).sort((a, b) => {
+const allProjects = (await getCollection('projects', ({ data }) => !data.hidden)).sort((a, b) => {
   const droneOrder = Number(isDrone(b.data.tags)) - Number(isDrone(a.data.tags));
   return droneOrder || b.data.date.getTime() - a.data.date.getTime();
 });

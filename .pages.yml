@@ -17,7 +17,7 @@ content:
     format: yaml-frontmatter
     filename: "{primary}.md"
     view:
-      fields: [title, date, featured]
+      fields: [title, date, hidden]
       primary: title
       sort: [date, title]
       default:
@@ -49,6 +49,10 @@ content:
         required: true
         options:
           media: projects
+      - name: hidden
+        label: Hide from site
+        description: Turn on to hide this project everywhere on the site. Turn off to show it again.
+        type: boolean
       - name: featured
         label: Show on home page
         type: boolean

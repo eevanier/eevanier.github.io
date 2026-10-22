@@ -28,6 +28,8 @@ const projects = defineCollection({
             tags: z.array(z.string()),
             thumbnail: image(),
             featured: z.boolean().optional(),
+            // true = hidden everywhere on the site (no card, no page).
+            hidden: z.boolean().optional(),
             link: z.string().url().optional(),
             repository: z.string().url().optional(),
 

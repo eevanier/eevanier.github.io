@@ -7,7 +7,8 @@ import ProjectPhoto from '../../components/ProjectPhoto.astro';
 import Lightbox from '../../components/Lightbox.astro';
 
 export async function getStaticPaths() {
-  const projects = await getCollection('projects');
+  // Hidden projects get no page at all.
+  const projects = await getCollection('projects', ({ data }) => !data.hidden);
   return projects.map((project) => ({
     params: { slug: project.slug },
     props: { project },
